@@ -52,20 +52,17 @@ class MainActivity : AppCompatActivity() {
 /*
 public class Calculation {
    
-
-        bth_back.setOnClickListener{
-            val stroka = bth_Expression.text.toString()
-            if (stroka.isNotEmpty())
-            {
-                bth_Expression.text = stroka.substring(0, stroka.length - 1)
-            }
-            bth_Result.text = ""
-        }
-        //очистка
-        bth_ac.setOnClickListener {
-            bth_Result.text =""
-            bth_Expression.text = ""
-        }
+    fun clear(){
+        if(main.isNotEmpty())
+            main=main.substring(0, main.length - 1)
+        res=""
+    }
+    fun clearall(){
+        main=""
+        res=""
+    }
+      
+        
 
     bth_equals.setOnClickListener {
             try{
