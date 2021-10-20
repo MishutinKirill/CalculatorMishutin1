@@ -64,20 +64,22 @@ public class Calculation {
       
         
 
-    bth_equals.setOnClickListener {
-            try{
-                val expression = ExpressionBuilder(bth_Expression.text.toString()).build()
-                val result = expression.evaluate()
-                val longResult = result.toLong()
-                if (result == longResult.toDouble())
-                    bth_Result.text = longResult.toString()
-                else
-                    bth_Result.text = result.toString()
-            } catch (e: Exception)
-            {
-                Log.d("Ошибка", "код:" + e.message)
+    fun equals():String{
+        try {
+            val expression = ExpressionBuilder(main.toString()).build()
+            val result= ex.evaluate()
+            val longResult = answer.toLong()
+            if(result == longResult.toDouble())
+                return longResult.toString()
+            else {
+                val context = MathContext(5, RoundingMode.HALF_UP)
+                val x = BigDecimal(result, context)
+                return x.toString()
             }
+        } catch (e: Exception) {
+            Log.d("Ошибка", "код:" + e.message)
         }
+    }
 
 
 }
