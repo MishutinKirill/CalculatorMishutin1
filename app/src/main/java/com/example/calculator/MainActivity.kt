@@ -64,7 +64,7 @@ public class Calculation {
       
         
 
-    fun equals():String{
+    fun computation():String{
         try {
             val expression = ExpressionBuilder(main.toString()).build()
             val result= ex.evaluate()
