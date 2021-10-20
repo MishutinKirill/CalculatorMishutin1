@@ -29,36 +29,7 @@ class MainActivity : AppCompatActivity() {
         bth_multi.setOnClickListener { pokaz(stroka = "*", ochistka = false) }
         bth_open.setOnClickListener { pokaz(stroka = "(", ochistka = false) }
         bth_Close.setOnClickListener { pokaz(stroka = ")", ochistka = false) }
-        //удаление последнего символа
-        bth_back.setOnClickListener{
-            val stroka = bth_Expression.text.toString()
-            if (stroka.isNotEmpty())
-            {
-                bth_Expression.text = stroka.substring(0, stroka.length - 1)
-            }
-            bth_Result.text = ""
-        }
-        //очистка
-        bth_ac.setOnClickListener {
-            bth_Result.text =""
-            bth_Expression.text = ""
-        }
-        //нажатие на равно(вычисление)
-        bth_equals.setOnClickListener {
-            try{
-                val expression = ExpressionBuilder(bth_Expression.text.toString()).build()
-                val result = expression.evaluate()
-                val longResult = result.toLong()
-                if (result == longResult.toDouble())
-                    bth_Result.text = longResult.toString()
-                else
-                    bth_Result.text = result.toString()
-            } catch (e: Exception)
-            {
-                Log.d("Ошибка", "код:" + e.message)
-            }
-        }
-    }
+
     fun pokaz(stroka:String,ochistka:Boolean)
     {
         if(bth_Result.text.isNotEmpty())
@@ -78,3 +49,39 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+/*
+public class Calculation {
+   
+
+        bth_back.setOnClickListener{
+            val stroka = bth_Expression.text.toString()
+            if (stroka.isNotEmpty())
+            {
+                bth_Expression.text = stroka.substring(0, stroka.length - 1)
+            }
+            bth_Result.text = ""
+        }
+        //очистка
+        bth_ac.setOnClickListener {
+            bth_Result.text =""
+            bth_Expression.text = ""
+        }
+
+    bth_equals.setOnClickListener {
+            try{
+                val expression = ExpressionBuilder(bth_Expression.text.toString()).build()
+                val result = expression.evaluate()
+                val longResult = result.toLong()
+                if (result == longResult.toDouble())
+                    bth_Result.text = longResult.toString()
+                else
+                    bth_Result.text = result.toString()
+            } catch (e: Exception)
+            {
+                Log.d("Ошибка", "код:" + e.message)
+            }
+        }
+
+
+}
+*/
